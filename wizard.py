@@ -3,7 +3,7 @@
 #           Incomplete      #
 #                           #
 #############################
-import cno_net_helper as cno
+import net_helper as nh
 import socket
 import argparse
 import threading
