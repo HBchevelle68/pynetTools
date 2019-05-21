@@ -1,5 +1,5 @@
 """
-Helper functions for CNO Dev Course Networks Series
+Helper functions for Dev Course Networks Series
 """
 
 import socket
