@@ -1,5 +1,5 @@
-#import cno_net_helper_ipv6
-import cno_net_helper
+#import net_helper_ipv6
+import net_helper
 import binascii
 import socket
 import uuid
@@ -54,7 +54,7 @@ def send_arp_reply(destmac, srcip, destip):
   arpreq += "\x00" * 6			  # dest mac
   arpreq += socket.inet_aton(destip)      # dest ip
 
-  cno_net_helper.rawsend(eth_hdr + arpreq, dev="eth0")
+ net_helper.rawsend(eth_hdr + arpreq, dev="eth0")
 
 ## ARP POISON
 ## REORDER BASED ON TARGET OS's
