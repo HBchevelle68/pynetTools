@@ -1,4 +1,4 @@
-import cno_net_helper      as cno
+import net_helper          as nh
 #import cno_net_helper_ipv6 as cnosix
 import helper_functions    as hf
 import netaddr_convert     as nc
@@ -41,7 +41,7 @@ def tcp_reset(ip_id, # ip id
   tcphdr += "\x00\x00" # TCP checksum
   tcphdr += "\x00" * 2 # URGT ptr
   
-  cno.rawsend_cksum(etherhdr + ipv4hdr + tcphdr)
+  nh.rawsend_cksum(etherhdr + ipv4hdr + tcphdr)
 
 
 tcp_reset(50276, '172.16.0.217', 50348, '00:0c:29:75:eb:a5', '172.16.0.55', 4444, 378892370)
