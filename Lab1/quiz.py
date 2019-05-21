@@ -1,4 +1,4 @@
-import cno_net_helper_ipv6
+import net_helper_ipv6
 
 ## POISON FOR LINUX BOX
 def send_arp_req(destmac, srcip, destip):
