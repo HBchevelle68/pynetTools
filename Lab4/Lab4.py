@@ -1,5 +1,4 @@
-import cno_net_helper      as cno
-#import cno_net_helper_ipv6 as cnosix
+import net_helper          as nh
 import helper_functions    as hf
 import netaddr_convert     as nc
 import struct
