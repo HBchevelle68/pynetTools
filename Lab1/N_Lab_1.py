@@ -34,7 +34,7 @@ def send_arp_req(destmac, srcip, destip):
   arpreq += "\x00" * 6		          # dest mac
   arpreq += socket.inet_aton(destip)      # dest ip
 
-  cno_net_helper.rawsend(eth_hdr + arpreq, dev="eth0")
+  net_helper.rawsend(eth_hdr + arpreq, dev="eth0")
 
 
 ## POISON FOR WINDOWS BOX
