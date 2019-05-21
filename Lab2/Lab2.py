@@ -1,4 +1,4 @@
-import cno_net_helper_ipv6 as cno
+import net_helper_ipv6 as nh6
 import helper_functions as hf
 import netaddr_convert as nac
 import struct
@@ -30,7 +30,7 @@ def ipv6_solicitation(ipv6_src_addr, ipv6_target_addr):
   ipv6hdr += hf.ipv6_str_to_bin(ipv6_target_addr) # target ipv6 addr
 
 
-  cno.rawsend_cksum(etherhdr + ipv6hdr + ipv6solicit, dev="eth0")
+ nh6.rawsend_cksum(etherhdr + ipv6hdr + ipv6solicit, dev="eth0")
 
 
 
@@ -64,7 +64,7 @@ def ipv6_advertisement(ipv6_src_addr, ipv6_target_addr):
   ipv6hdr += hf.ipv6_str_to_bin(ipv6_target_addr) # target ipv6 addr
 
 
-  cno.rawsend_cksum(etherhdr + ipv6hdr + ipv6adver, dev="eth0")
+  nh6.rawsend_cksum(etherhdr + ipv6hdr + ipv6adver, dev="eth0")
 
 
 
@@ -117,7 +117,7 @@ def ipv6_router_advertisement(ipv6_net_id, ipv6_src_addr, ipv6_target_addr):
   ipv6hdr += hf.ipv6_str_to_bin(ipv6_target_addr) # target ipv6 addr
   
 
-  cno.rawsend_cksum(etherhdr + ipv6hdr + ipv6rtradv, dev="eth0")
+  nh6.rawsend_cksum(etherhdr + ipv6hdr + ipv6rtradv, dev="eth0")
 
 
 def ipv6_redirect(ipv6_src_addr, ipv6_new_dest_addr, new_dest_mac, victim_mac, ipv6_victim_addr):
@@ -153,7 +153,7 @@ def ipv6_redirect(ipv6_src_addr, ipv6_new_dest_addr, new_dest_mac, victim_mac, i
   ipv6hdr += hf.ipv6_str_to_bin(ipv6_src_addr) # src ipv6 addr
   ipv6hdr += hf.ipv6_str_to_bin(ipv6_victim_addr) # target ipv6 addr
 
-  cno.rawsend_cksum(etherhdr + ipv6hdr + ipv6redirect, dev="eth0")
+  nh6.rawsend_cksum(etherhdr + ipv6hdr + ipv6redirect, dev="eth0")
 
 
 #ipv6_solicitation("a:c:7:9:c17f:df95:8383:3df7", "a:c:7:9::69")
@@ -177,7 +177,7 @@ ipv6_router_advertisement("5:5:5:4::", "fe80::20c:29ff:fe85:6c41", "ff02::1")
 """
 frame = "\x00\x0c\x29\x81\x8f\x40\x00\x0c\x29\x78\xec\x6a\x08\x00\x45\x00\x00\x54\x49\xb7\x40\x00\x40\x01\x97\x66\xac\x10\x00\xa4\xac\x10\x00\xc7\x08\x00\x6b\xb3\x15\xc6\x00\x01\x51\x74\x22\x5b\x00\x00\x00\x00\x3c\xe3\x07\x00\x00\x00\x00\x00\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f\x20\x21\x22\x23\x24\x25\x26\x27\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f\x30\x31\x32\x33\x34\x35\x36\x37"
 
-cno.rawsend(frame)
+nh6.rawsend(frame)
 
 
 
@@ -196,5 +196,5 @@ frame1 = "\x33\x33\x00\x01\x00\x02\x50\x9a\x4c\x47\xa6\xf4\x86\xdd\x60\x00" \
 
 
 for x in xrange(100):
-  cno.rawsend(frame1)
+  nh6.rawsend(frame1)
 """
